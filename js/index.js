@@ -66,7 +66,6 @@ galleryRef.addEventListener("click", (e) => {
         }
         modalImgRef.src = dataSourceRef[activeIndex];
       }
-      console.log(activeIndex);
     });
   }
 });

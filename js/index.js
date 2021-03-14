@@ -43,26 +43,30 @@ galleryRef.addEventListener("click", (e) => {
         closeModalAndClean();
       }
     });
-    
+
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeModalAndClean();
       }
-      
 
       if (e.key === "ArrowLeft") {
-        
-        
-        if(activeIndex = 0) {
+        if (activeIndex === 0) {
           activeIndex = dataSourceRef.length - 1;
-          }
-        activeIndex -= 1;
+        } else {
+          activeIndex -= 1;
+        }
         modalImgRef.src = dataSourceRef[activeIndex];
       }
-      if (e.key === "ArrowRight" && activeIndex < dataSourceRef.length - 1) {
-        activeIndex += 1;
+
+      if (e.key === "ArrowRight") {
+        if (activeIndex < dataSourceRef.length - 1) {
+          activeIndex += 1;
+        } else {
+          activeIndex = 0;
+        }
         modalImgRef.src = dataSourceRef[activeIndex];
       }
+      console.log(activeIndex);
     });
   }
 });
